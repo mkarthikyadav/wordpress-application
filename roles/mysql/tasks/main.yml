@@ -1,0 +1,7 @@
+- name: Create mysql database
+  mysql_db: name = {{ wp_mysql_db }} state=present
+- name: Create mysql user
+  mysql_user: name ={{ wp_mysql_user }}
+  mysql_password: password= {{ mysql }}
+  priv=*.*: wp_mysql_user
+  become: yes
